@@ -52,19 +52,23 @@ struct Rectangle {
     height: u32,
 }
 
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
 fn test1() {
     let rect = Rectangle {
         width: 50,
         height: 100,
     };
 
-    println!("The area of the rectangle is {}", area(&rect));
+    // Same semantics as next line
+    // println!("The area of the rectangle is {}", rect.area());
+    println!("The area of the rectangle is {}", (&rect).area());
     println!("The perimeter of the rectangle is {}", peri(&rect));
     println!("The Rectangle itself is {:#?}", rect);
-}
-
-fn area(rect: &Rectangle) -> u32 {
-    rect.width * rect.height
 }
 
 fn peri(rect: &Rectangle) -> u32 {
