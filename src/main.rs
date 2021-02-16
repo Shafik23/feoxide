@@ -2,7 +2,7 @@ use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
 
-fn main() {
+fn guess_game() {
     let secret_number: u32 = rand::thread_rng().gen_range(1..100);
 
     // println!("The secret number is {}", secret_number);
@@ -30,4 +30,43 @@ fn main() {
             }
         }
     }
+}
+
+fn foo() -> i32 {
+    let arr = [1, 2, 3, 4, 5];
+
+    // Compiler error:
+    // println!("Value is: {}", arr[7]);
+
+    println!("Value is: {}", arr[4]);
+
+    // Return value:
+    42
+}
+
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+fn test1() {
+    let rect = Rectangle {
+        width: 50,
+        height: 100,
+    };
+
+    println!("The area of the rectangle is {}", area(&rect));
+    println!("The perimeter of the rectangle is {}", peri(&rect));
+}
+
+fn area(rect: &Rectangle) -> u32 {
+    rect.width * rect.height
+}
+
+fn peri(rect: &Rectangle) -> u32 {
+    2 * (rect.width + rect.height)
+}
+
+fn main() {
+    test1();
 }
