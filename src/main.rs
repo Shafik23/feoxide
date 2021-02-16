@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
@@ -44,6 +46,7 @@ fn foo() -> i32 {
     42
 }
 
+#[derive(Debug)]
 struct Rectangle {
     width: u32,
     height: u32,
@@ -57,6 +60,7 @@ fn test1() {
 
     println!("The area of the rectangle is {}", area(&rect));
     println!("The perimeter of the rectangle is {}", peri(&rect));
+    println!("The Rectangle itself is {:#?}", rect);
 }
 
 fn area(rect: &Rectangle) -> u32 {
