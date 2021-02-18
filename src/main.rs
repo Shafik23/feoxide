@@ -2,6 +2,7 @@
 
 use rand::Rng;
 use std::cmp::Ordering;
+use std::collections::HashMap;
 use std::io;
 
 fn guess_game() {
@@ -73,6 +74,19 @@ fn test1() {
 
 fn peri(rect: &Rectangle) -> u32 {
     2 * (rect.width + rect.height)
+}
+
+fn test2() {
+    let mut hash_table = HashMap::new();
+
+    hash_table.insert(String::from("Hello"), 42);
+    // println!("{}", hash_table.get("Hello"));
+    // hash_table.insert(String::from("World"), 42 * 2);
+
+    let teams = vec![String::from("Blue"), String::from("Yellow")];
+    let initial_scores = vec![10, 50];
+
+    let scores: HashMap<_, _> = teams.into_iter().zip(initial_scores.into_iter()).collect();
 }
 
 fn main() {
